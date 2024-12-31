@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<mct:Popup xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NavBar.SettingsPopupPage"
+             xmlns:mct="clr-namespace:CommunityToolkit.Maui.Views;assembly=CommunityToolkit.Maui">
+
+    <Border BackgroundColor="{AppThemeBinding Light={StaticResource Gray500}, Dark={StaticResource Gray600}}">
+
+        <Grid RowDefinitions="Auto,*,*" ColumnDefinitions="*,*" WidthRequest="500" HeightRequest="200"  >
+
+            <BoxView Grid.Row="1" Grid.ColumnSpan="2" Grid.RowSpan="2" BackgroundColor = "{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Gray950}}"/>
+
+            <StackLayout Orientation="Horizontal" Grid.Row="0" Grid.ColumnSpan="2" >
+                <Label Text="Settings" FontSize="Large" VerticalOptions="Center" HorizontalOptions="StartAndExpand" Margin="20,0,0,0" />
+                <Button Text="Close" BorderWidth="1" MinimumHeightRequest="35" HeightRequest="35" Clicked="CloseSettingsPopupPage_Clicked" VerticalOptions="Center" HorizontalOptions="End" Margin="0,10,20,10" />
+            </StackLayout>
+
+            <Label Grid.Row="1" Grid.Column="0" Text="Number form" FontSize="Subtitle" VerticalOptions="Center" HorizontalOptions="Start" Margin="40,0,0,0" TextColor = "{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource White}}"/>
+
+            <HorizontalStackLayout Grid.Row="1" Grid.Column="1">
+                <RadioButton x:Name="numberFormButton1" Content="Rect" GroupName="numberForm" Margin="0,0,5,0" FontAttributes="Bold" ToolTipProperties.Text="Rectangular number form" TextColor = "{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource White}}"/>
+                <RadioButton x:Name="numberFormButton2" Content="Phsr" GroupName="numberForm" Margin="0,0,5,0" FontAttributes="Bold" ToolTipProperties.Text="Phasor number form" TextColor = "{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource White}}"/>
+                <RadioButton x:Name="numberFormButton3" Content="Both" GroupName="numberForm" Margin="0,0,5,0" FontAttributes="Bold" ToolTipProperties.Text="Rectangular and phasor number form" TextColor = "{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource White}}"/>
+            </HorizontalStackLayout>
+
+            <Label Grid.Row="2" Grid.Column="0" Text="Font size" FontSize="Subtitle" VerticalOptions="Center" HorizontalOptions="Start" Margin="40,0,0,0" TextColor = "{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource White}}"/>
+
+            <HorizontalStackLayout Grid.Row="2" Grid.Column="1" >
+                <Label Text="{Binding Source={x:Reference fontStepper}, Path=Value}" VerticalOptions="Center" Margin="5,0,30,0" TextColor = "{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource White}}"/>
+                <Stepper x:Name="fontStepper" Minimum="6" Maximum="40" Value="14" Margin="0,0,10,0" VerticalOptions="Center" HorizontalOptions="Start" ToolTipProperties.Text="Change font size" />
+            </HorizontalStackLayout>
+
+        </Grid>
+
+    </Border>
+
+</mct:Popup>

@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NavBar.MainPage">
+
+    <StackLayout>
+
+        <Grid ColumnDefinitions="*,auto" Padding="10,0,10,0" BackgroundColor="{AppThemeBinding Light={StaticResource Gray500}, Dark={StaticResource Gray600}}">
+
+            <FlexLayout Grid.Column="0" Direction="Row" Wrap="Wrap" >
+
+                <StackLayout Orientation="Horizontal">
+                    <ImageButton Source="newfile.png" BackgroundColor="Transparent" MinimumWidthRequest="60" WidthRequest="60" MinimumHeightRequest="30" HeightRequest="30" ToolTipProperties.Text="New file" />
+                    <ImageButton Source="openfile.png" BackgroundColor="Transparent" MinimumWidthRequest="65" WidthRequest="60" MinimumHeightRequest="30" HeightRequest="25" Margin="5,0,0,0" ToolTipProperties.Text="Open file" />
+                    <ImageButton Source="savefile.png" BackgroundColor="Transparent" MinimumWidthRequest="65" WidthRequest="60" MinimumHeightRequest="30" HeightRequest="25" Margin="5,0,0,0" ToolTipProperties.Text="Save file" />
+                    <ImageButton Source="openimage.png" BackgroundColor="Transparent" MinimumWidthRequest="75" WidthRequest="60" MinimumHeightRequest="30" HeightRequest="25" Margin="5,0,0,0" ToolTipProperties.Text="Import schematic" />
+                    <!--<ImageButton Source="settings.png" BackgroundColor="Transparent" MinimumWidthRequest="80" WidthRequest="60" MinimumHeightRequest="33" HeightRequest="25" Clicked="SettingsPopupPageClicked" Margin="5,0,0,0" ToolTipProperties.Text="Settings" />-->
+                    <ImageButton Source="about.png" BackgroundColor="Transparent" MinimumWidthRequest="75" WidthRequest="60" MinimumHeightRequest="33" HeightRequest="25" Clicked="AboutPopupPageClicked" Margin="5,0,0,0" ToolTipProperties.Text="About" />
+                    <ImageButton Source="help.png" BackgroundColor="Transparent" MinimumWidthRequest="45" WidthRequest="60" MinimumHeightRequest="33" HeightRequest="30" Clicked="HelpPopupPageClicked" ToolTipProperties.Text="Help" />
+                </StackLayout>
+
+                <HorizontalStackLayout>
+                    <Label Text="Form" FontSize="Small" FontAttributes="Bold" TextColor="White" VerticalOptions="Center" Padding="10,0,10,0" />
+                    <RadioButton x:Name="numberFormButton1" Content="Rect" GroupName="numberForm" Margin="0,0,5,0" FontAttributes="Bold" CheckedChanged="FormButton_CheckedChanged" ToolTipProperties.Text="Rectangular number form" />
+                    <RadioButton x:Name="numberFormButton2" Content="Phsr" GroupName="numberForm" Margin="0,0,5,0" FontAttributes="Bold" CheckedChanged="FormButton_CheckedChanged" ToolTipProperties.Text="Phasor number form" />
+                    <RadioButton x:Name="numberFormButton3" Content="Both" GroupName="numberForm" Margin="0,0,5,0" FontAttributes="Bold" CheckedChanged="FormButton_CheckedChanged" ToolTipProperties.Text="Rectangular and phasor number form" />
+                </HorizontalStackLayout>
+
+                <HorizontalStackLayout>
+                    <Label Text="Font" FontSize="Small" FontAttributes="Bold" TextColor="White" VerticalOptions="Center" Margin="10,0,10,0" />
+                    <Stepper Minimum="6" Maximum="40" Value="14" Margin="0,0,10,0" VerticalOptions="Center" ToolTipProperties.Text="Change font size" />
+                </HorizontalStackLayout>
+
+
+            </FlexLayout>
+
+            <StackLayout Grid.Column="1" Orientation="Horizontal">
+                <ActivityIndicator Color="White" IsRunning="True" />
+                <Button Text="Solve" VerticalOptions="Center" MinimumHeightRequest="35" HeightRequest="35" Clicked="SolveAll_Clicked" Margin="10,3,0,3" ToolTipProperties.Text="Solve all matrices and tabs" />
+            </StackLayout>
+
+        </Grid>
+
+        <Label Text="The MOLS NavBar Replacement page!"
+               VerticalOptions="CenterAndExpand"
+               HorizontalOptions="CenterAndExpand" />
+    </StackLayout>
+
+
+</ContentPage>
